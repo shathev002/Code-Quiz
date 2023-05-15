@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Quiz</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="./javascript.js" defer></script>
+</head>
+<body>
+  <div id="startMenu">
+  <h1>Welcome to the Coding Quiz</h1>
+  <button id="startButton">Start</button>
+</div>
+<div id="gameMenu" class="hide">
+  <h3 id="timer"></h3>
+  <h1 id="questionText"></h1>
+  <div id="choices" >
+    <button id="button1"></button>
+    <button id="button2"></button>
+    <button id="button3"></button>
+    <button id="button4"></button>
+  </div>
+  <div id="highScoreMenu" class="hide">
+    <h1>High Scores</h1>
+    <table>
+      <input type="text" id="scoreName" placeholder="insert name here"><button id="submitScore">Submit</button>
+      <!-- submit button here -->
+      <tbody id="scoreTable">
+        <tr>
+          <th>Name</th>
+        </tr>
+        <tr>
+          <th>High Score</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
