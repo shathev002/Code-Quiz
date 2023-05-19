@@ -21,15 +21,36 @@ var question = [{
 
   question: "What does DOM stand for?",
   answer: "Document Object Model",
-  options: ["Document Object Model", "choice", "choice", "choice"]
+  options: ["Document Object Model", "Document Oriented Module", "Date of Birth", "Database Object Model"]
 
 },{
+  question: "What type of loop continues through the code as long as the condition stated stays TRUE?",
+  answer: "While Loop",
+  options: ["For Loop", "While Loop", "Else Loop", "Conditional Loop"]
 
-  question: "What is javascript?",
-  answer: "a programming language",
-  options: ["a programming language", "choice", "choice", "choice"]
+}, 
 
-}]
+{question: "Which of the following is true about functions?",
+answer: "All of the above",
+options: ["Code to be executed by the function is put inside curly brackets", "The return statement stops the function from performing indefinitely", 
+"Local variables are variables declared within a function", "All of the above"]
+
+}, 
+
+
+{question: "What element in JavaScript is used to store multiple values in a variable?",
+answer: "Arrays",
+options: ["Functions", "Variables", "Arrays ", "Strings"]
+
+}, 
+
+{question: "What format is used to store and transport data?",
+answer: "JSON",
+options: ["HTML", "Syntax", "For loop ", "JSON"]
+
+}
+
+]
 
 //use innerText to fill the timer div
 
@@ -55,6 +76,11 @@ if(event.target.innerText === question[currentPosition].answer){
 
 
 }
+
+//once finish all the questions: 
+
+//for( i= 0; i < question.length; i++)
+
 )
 function nextQuestion(){
   currentPosition++
