@@ -88,30 +88,29 @@ startButton.addEventListener("click",function(event){
   buttonThree.innerText = questions[currentPosition].options[2]
   buttonFour.innerText = questions[currentPosition].options[3]
   setInterval(timerInterval);
-  // if(currentPosition === questions.length || time <= 0) {
-  //   highScore.classList.remove("hide")
-  //   gameMenu.classList.add("hide")
-  //   return;
-    
-  //   }
+
 })
 
 choices.addEventListener("click",function(event) {
 event.preventDefault();
-if(event.target.innerText === questions[currentPosition].answer){
-  nextQuestion()
+
+if(currentPosition === questions.length - 1 || time <= 0) {
+  resultsMenu.classList.remove("hide")
+  gameMenu.classList.add("hide")
+  return;
+}
+
+else if(event.target.innerText === questions[currentPosition].answer) {
+  nextQuestion();
   
-}else{
+} else (event.target.innerText !== questions[currentPosition].answer) ;{
   time-10;
   nextQuestion();
-}
+} 
 
 
 }
 
-//once finish all the questions: All done!
-
-//for( i= 0; i < question.length; i++)
 
 )
 function nextQuestion(){
