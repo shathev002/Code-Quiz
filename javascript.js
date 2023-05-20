@@ -94,23 +94,22 @@ startButton.addEventListener("click",function(event){
 choices.addEventListener("click",function(event) {
 event.preventDefault();
 
-if(currentPosition === questions.length - 1 || time <= 0) {
+if (currentPosition === questions.length - 1 || time <= 0) {
   resultsMenu.classList.remove("hide")
   gameMenu.classList.add("hide")
   return;
 }
 
-else if(event.target.innerText === questions[currentPosition].answer) {
+  else if (event.target.innerText === questions[currentPosition].answer) {
   nextQuestion();
-  
-} else (event.target.innerText !== questions[currentPosition].answer) ;{
-  time-10;
+  console.log("correct");
+} else {
+  time-=10;
   nextQuestion();
+  console.log("incorrect");
 } 
 
-
 }
-
 
 )
 function nextQuestion(){
