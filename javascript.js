@@ -20,7 +20,7 @@ var currentPosition = 0;
 
 
 console.log(submitScore); // prints null
-
+console.log(submitScore);
 
 //timer
 
@@ -129,16 +129,13 @@ function showScores () {
  
 }
 
-// submitButton.addEventListener("click", function() {
-//   highScore.classList.remove("hide")
-//   resultsMenu.classList.add("hide")
-// console.log(submit);
-// saveScore();
+submitScore.addEventListener("click", function() {
+  highScore.classList.remove("hide")
+  resultsMenu.classList.add("hide")
 
-// });
+saveScore();
 
-console.log(submitScore); //prints null
-
+});
 
 
 function saveScore () {
