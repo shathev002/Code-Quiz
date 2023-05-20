@@ -10,12 +10,36 @@ var questionText = document.querySelector("#questionText");
 var choices = document.querySelector("#choices");
 var highScore = document.querySelector("#highScoreMenu");
 var scoreTable = document.querySelector("#scoreTable");
-
+var scoreName = document.querySelector("#scoreName");
 var highScores = JSON.stringify(localStorage.getItem("scores")) || []
-
+var resultsMenu = document.querySelector("#resultsMenu");
 var time = 60;
-
+var timerInterval = '';
 var currentPosition = 0;
+
+//timer
+
+timerInterval = setInterval(countDown, 1000);
+
+function countDown () {
+  timer.innerText = time +" seconds";
+if (time > 0) {
+  time--;
+} else if (time <= 0) {
+  clearInterval(timerInterval);
+  showScores();
+}
+
+};
+
+//scores
+function showScores () {
+  resultsMenu.classList.remove("hide")
+  gameMenu.classList.add("hide")
+ 
+
+}
+
 
 var questions = [{
 
@@ -63,12 +87,20 @@ startButton.addEventListener("click",function(event){
   buttonTwo.innerText = questions[currentPosition].options[1]
   buttonThree.innerText = questions[currentPosition].options[2]
   buttonFour.innerText = questions[currentPosition].options[3]
+  setInterval(timerInterval);
+  // if(currentPosition === questions.length || time <= 0) {
+  //   highScore.classList.remove("hide")
+  //   gameMenu.classList.add("hide")
+  //   return;
+    
+  //   }
 })
 
 choices.addEventListener("click",function(event) {
 event.preventDefault();
 if(event.target.innerText === questions[currentPosition].answer){
   nextQuestion()
+  
 }else{
   time-10;
   nextQuestion();
@@ -91,13 +123,12 @@ function nextQuestion(){
   buttonTwo.innerText = questions[currentPosition].options[1]
   buttonThree.innerText = questions[currentPosition].options[2]
   buttonFour.innerText = questions[currentPosition].options[3]
+  
 
 }
 
-// if(currentPosition = question.length) {
-//   startMenu.classList.remove("hide")
-//   highScore.classList.add("hide")
-//   } 
+
+
 
 
 
