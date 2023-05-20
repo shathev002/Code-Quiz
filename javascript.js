@@ -17,7 +17,7 @@ var time = 60;
 
 var currentPosition = 0;
 
-var question = [{
+var questions = [{
 
   question: "What does DOM stand for?",
   answer: "Document Object Model",
@@ -58,16 +58,16 @@ startButton.addEventListener("click",function(event){
   event.preventDefault();
   gameMenu.classList.remove("hide")
   startMenu.classList.add("hide")
-  questionText.innerText = question[currentPosition].question
-  buttonOne.innerText = question[currentPosition].options[0]
-  buttonTwo.innerText = question[currentPosition].options[1]
-  buttonThree.innerText = question[currentPosition].options[2]
-  buttonFour.innerText = question[currentPosition].options[3]
+  questionText.innerText = questions[currentPosition].question
+  buttonOne.innerText = questions[currentPosition].options[0]
+  buttonTwo.innerText = questions[currentPosition].options[1]
+  buttonThree.innerText = questions[currentPosition].options[2]
+  buttonFour.innerText = questions[currentPosition].options[3]
 })
 
 choices.addEventListener("click",function(event) {
 event.preventDefault();
-if(event.target.innerText === question[currentPosition].answer){
+if(event.target.innerText === questions[currentPosition].answer){
   nextQuestion()
 }else{
   time-10;
@@ -77,20 +77,29 @@ if(event.target.innerText === question[currentPosition].answer){
 
 }
 
-//once finish all the questions: 
+//once finish all the questions: All done!
 
 //for( i= 0; i < question.length; i++)
 
 )
 function nextQuestion(){
-  currentPosition++
+
+  currentPosition++;
   //rewrite h1 and choices with question[currentPosition]
-  questionText.innerText = question[currentPosition].question
-  buttonOne.innerText = question[currentPosition].options[0]
-  buttonTwo.innerText = question[currentPosition].options[1]
-  buttonThree.innerText = question[currentPosition].options[2]
-  buttonFour.innerText = question[currentPosition].options[3]
+  questionText.innerText = questions[currentPosition].question
+  buttonOne.innerText = questions[currentPosition].options[0]
+  buttonTwo.innerText = questions[currentPosition].options[1]
+  buttonThree.innerText = questions[currentPosition].options[2]
+  buttonFour.innerText = questions[currentPosition].options[3]
+
 }
+
+// if(currentPosition = question.length) {
+//   startMenu.classList.remove("hide")
+//   highScore.classList.add("hide")
+//   } 
+
+
 
 function saveScore () {
   var score = {
