@@ -13,9 +13,14 @@ var scoreTable = document.querySelector("#scoreTable");
 var scoreName = document.querySelector("#scoreName");
 var highScores = JSON.stringify(localStorage.getItem("scores")) || []
 var resultsMenu = document.querySelector("#resultsMenu");
+var submitScore = document.querySelector("#submitScore");
 var time = 60;
 var timerInterval = '';
 var currentPosition = 0;
+
+
+console.log(submitScore); // prints null
+
 
 //timer
 
@@ -31,15 +36,6 @@ if (time > 0) {
 }
 
 };
-
-//scores
-function showScores () {
-  resultsMenu.classList.remove("hide")
-  gameMenu.classList.add("hide")
- 
-
-}
-
 
 var questions = [{
 
@@ -126,11 +122,29 @@ function nextQuestion(){
 }
 
 
+//scores
+function showScores () {
+  resultsMenu.classList.remove("hide")
+  gameMenu.classList.add("hide")
+ 
+}
 
+// submitButton.addEventListener("click", function() {
+//   highScore.classList.remove("hide")
+//   resultsMenu.classList.add("hide")
+// console.log(submit);
+// saveScore();
+
+// });
+
+console.log(submitScore); //prints null
 
 
 
 function saveScore () {
+  highScore.classList.remove("hide")
+resultsMenu.classList.add("hide")
+
   var score = {
     name: document.querySelector("#scoreName").value,
     score:time

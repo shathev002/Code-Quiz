@@ -29,19 +29,17 @@
     <p>Your score: </p>
     <div>
     <label for="">Enter Initials:</label>
-    <input type="text" placeholder="insert name here">
-    <button>Submit</button>
+    <input type="text" id="scoreName" placeholder="insert name here">
+    <button id="submitScore">Submit</button>
 
     </div>
     
 
   </div>
+
   <div id="highScoreMenu" class="hide">
     <h1>High Scores</h1>
     <table>
-      <input type="text" id="scoreName" placeholder="insert name here">
-      <button id="submitScore">Submit</button>
-      <!-- submit button here -->
       <tbody id="scoreTable">
         <tr>
           <th>Name</th>
@@ -51,6 +49,8 @@
         </tr>
       </tbody>
     </table>
+    <button id="backBtn">Go back</button>
+      <button id="clearBtn">Clear Highscores</button>
   </div>
 
 </body>
