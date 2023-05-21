@@ -1,4 +1,4 @@
-var starButton = document.querySelector("#startButton");
+var startButton = document.querySelector("#startButton");
 var buttonOne = document.querySelector("#button1");
 var buttonTwo = document.querySelector("#button2");
 var buttonThree = document.querySelector("#button3");
@@ -150,16 +150,17 @@ function showScores () {
 submitScore.addEventListener("click", function() {
   highScore.classList.remove("hide")
   resultsMenu.classList.add("hide")
+  saveScore();
   highScoreName.textContent = highScores[0].name;
   highScoreInput.textContent = highScores[0].score;
   console.log(scoreName.value); 
-  saveScore();
+  
 
 });
 
  
-var highScores = JSON.parse(localStorage.getItem("score")) || [];
-console.log("highScores:", highScores);
+// var highScores = JSON.parse(localStorage.getItem("score")) || [];
+// console.log("highScores:", highScores);
 
 
 function saveScore () {
@@ -172,23 +173,24 @@ function saveScore () {
   console.log("finalScore", finalScore, typeof finalScore); 
   highScores.push(finalScore);  
   console.log("highScores:", highScores); 
-  localStorage.setItem("score", JSON.stringify(highScores));
+  localStorage.setItem("scores", JSON.stringify(highScores));
 }
 
 
 
 // return to start menu
 
-backBtn.addEventListener("click", function() {
-  
+backBtn.addEventListener("click", function(event) {
+  event.preventDefault();
   highScore.classList.add("hide")
   startMenu.classList.remove("hide")
 });
 
 // Reset the score
 
-clearBtn.addEventListener("click", function() {
-score = 0;
-localStorage.removeItem("score");
+clearBtn.addEventListener("click", function(event) {
+  event.preventDefault();
+  score = 0;
+localStorage.removeItem("scores");
 
 });
