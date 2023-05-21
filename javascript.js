@@ -11,7 +11,6 @@ var choices = document.querySelector("#choices");
 var highScore = document.querySelector("#highScoreMenu");
 var scoreTable = document.querySelector("#scoreTable");
 var scoreName = document.querySelector("#scoreName");
-//var highScores = JSON.stringify(localStorage.getItem("scores")) || [];
 var highScores = JSON.parse(localStorage.getItem("scores")) || [];
 var resultsMenu = document.querySelector("#resultsMenu");
 var submitScore = document.querySelector("#submitScore");
@@ -26,8 +25,6 @@ var currentPosition = 0;
 var score = 0;
 
 //myScore.innerText = `Your score: ${score}`;
-
-
 
 var questions = [{
 
@@ -78,21 +75,10 @@ startButton.addEventListener("click",function(event){
 })
 
 
-
-
 choices.addEventListener("click",function(event) {
 event.preventDefault();
 
-// if (currentPosition === questions.length - 1 || time <= 0) {
-//   console.log("are we getting here?", currentPosition === questions.length - 1);
-//   showScores();
-//   gameMenu.classList.add("hide")
-//   resultsMenu.classList.remove("hide")
- 
-  
-//   return;
-  
-// }
+
 
   if (event.target.innerText === questions[currentPosition].answer) {
     score += 1;
@@ -124,20 +110,16 @@ console.log("questions.length: ", questions.length);
 
 }
 
-)
+);
 function nextQuestion(){
   currentPosition++;
-  // if(currentPosition !== questions.length - 1) {
-    
-
-  // }
-  
+ 
   //rewrite h1 and choices with question[currentPosition]
-  questionText.innerText = questions[currentPosition]?.question
-  buttonOne.innerText = questions[currentPosition]?.options[0]
-  buttonTwo.innerText = questions[currentPosition]?.options[1]
-  buttonThree.innerText = questions[currentPosition]?.options[2]
-  buttonFour.innerText = questions[currentPosition]?.options[3]
+  questionText.innerText = questions[currentPosition].question
+  buttonOne.innerText = questions[currentPosition].options[0]
+  buttonTwo.innerText = questions[currentPosition].options[1]
+  buttonThree.innerText = questions[currentPosition].options[2]
+  buttonFour.innerText = questions[currentPosition].options[3]
   
 
 }
@@ -170,8 +152,8 @@ submitScore.addEventListener("click", function() {
   resultsMenu.classList.add("hide")
   highScoreName.textContent = highScores[0].name;
   highScoreInput.textContent = highScores[0].score;
-  console.log(scoreName.value); //printing in console
-saveScore();
+  console.log(scoreName.value); 
+  saveScore();
 
 });
 
@@ -192,3 +174,21 @@ function saveScore () {
   console.log("highScores:", highScores); 
   localStorage.setItem("score", JSON.stringify(highScores));
 }
+
+
+
+// return to start menu
+
+backBtn.addEventListener("click", function() {
+  
+  highScore.classList.add("hide")
+  startMenu.classList.remove("hide")
+});
+
+// Reset the score
+
+clearBtn.addEventListener("click", function() {
+score = 0;
+localStorage.removeItem("score");
+
+});
