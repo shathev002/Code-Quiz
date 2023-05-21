@@ -16,6 +16,8 @@ var highScores = JSON.parse(localStorage.getItem("scores")) || [];
 var resultsMenu = document.querySelector("#resultsMenu");
 var submitScore = document.querySelector("#submitScore");
 var myScore = document.querySelector(".myScore");
+var name = document.querySelector(".name");
+var highScoreInput = document.querySelector(".highScoreInput");
 var time = 60;
 var timerInterval = '';
 var currentPosition = 0;
@@ -133,6 +135,7 @@ function showScores () {
 submitScore.addEventListener("click", function() {
   highScore.classList.remove("hide")
   resultsMenu.classList.add("hide")
+  highScoreInput = scoreName.value;
   console.log(scoreName.value); //printing in console
 saveScore();
 
