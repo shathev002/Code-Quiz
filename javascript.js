@@ -23,20 +23,7 @@ var score = 0;
 
 myScore.innerText = `Your score: ${score}`;
 
-//timer
 
-timerInterval = setInterval(countDown, 1000);
-
-function countDown () {
-  timer.innerText = time +" seconds";
-if (time > 0) {
-  time--;
-} else if (time <= 0) {
-  clearInterval(timerInterval);
-  showScores();
-}
-
-};
 
 var questions = [{
 
@@ -72,8 +59,6 @@ options: ["HTML", "Syntax", "For loop ", "JSON"]
 }
 
 ]
-
-//use innerText to fill the timer div
 
 startButton.addEventListener("click",function(event){
   event.preventDefault();
@@ -123,6 +108,20 @@ function nextQuestion(){
 
 }
 
+//timer
+
+timerInterval = setInterval(countDown, 1000);
+
+function countDown () {
+  timer.innerText = time +" seconds";
+if (time > 0) {
+  time--;
+} else if (time <= 0) {
+  clearInterval(timerInterval);
+  showScores();
+}
+
+};
 
 //scores
 function showScores () {
@@ -134,14 +133,15 @@ function showScores () {
 submitScore.addEventListener("click", function() {
   highScore.classList.remove("hide")
   resultsMenu.classList.add("hide")
-
+  console.log(scoreName.value); //printing in console
 saveScore();
 
 });
 
 console.log(score);
-console.log(score.name); //undefined
-
+ 
+var highScores = JSON.parse(localStorage.getItem("scores")) || [];
+// should this be score inside?
 
 function saveScore () {
   
@@ -149,8 +149,8 @@ function saveScore () {
     name: scoreName.value,
     score:time
 
-  }
+  };
      
   highScores.push(score)   // getting error 
-  localStorage.setItem("score",JSON.stringify(highScores))
+  localStorage.setItem("score", JSON.stringify(highScores));
 }
