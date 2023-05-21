@@ -23,7 +23,7 @@ var timerInterval = '';
 var currentPosition = 0;
 var score = 0;
 
-myScore.innerText = `Your score: ${score}`;
+//myScore.innerText = `Your score: ${score}`;
 
 
 
@@ -80,8 +80,10 @@ event.preventDefault();
 
 if (currentPosition === questions.length - 1 || time <= 0) {
   resultsMenu.classList.remove("hide")
+  showScores();
   gameMenu.classList.add("hide")
   return;
+  
 }
 
   else if (event.target.innerText === questions[currentPosition].answer) {
