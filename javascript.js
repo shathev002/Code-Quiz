@@ -77,24 +77,48 @@ startButton.addEventListener("click",function(event){
 
 })
 
+
+
+
 choices.addEventListener("click",function(event) {
 event.preventDefault();
 
-if (currentPosition === questions.length - 1 || time <= 0) {
-  resultsMenu.classList.remove("hide")
-  showScores();
-  gameMenu.classList.add("hide")
-  return;
+// if (currentPosition === questions.length - 1 || time <= 0) {
+//   console.log("are we getting here?", currentPosition === questions.length - 1);
+//   showScores();
+//   gameMenu.classList.add("hide")
+//   resultsMenu.classList.remove("hide")
+ 
   
-}
+//   return;
+  
+// }
 
-  else if (event.target.innerText === questions[currentPosition].answer) {
-  nextQuestion();
-  score += 1;
-  console.log(score);
+  if (event.target.innerText === questions[currentPosition].answer) {
+    score += 1;
+    if (currentPosition !== questions.length - 1 && time > 0) {
+      nextQuestion();
+      console.log("line 101");
+    } else if (currentPosition === questions.length - 1 || time <= 0) {
+      showScores();
+      console.log("line 104");
+    }
+   //console.log("question: ", question);
+    console.log("score: ", score);
+  console.log("currentPosition: ", currentPosition);
+console.log("questions.length: ", questions.length);
 } else {
   time-=10;
-  nextQuestion();
+  console.log("currentPosition: ", currentPosition);
+  console.log("questions.length: ", questions.length);
+  //console.log("question: ", question);
+  if (currentPosition !== questions.length - 1 && time > 0) {
+    nextQuestion();
+    console.log("line 115");
+  } else if (currentPosition === questions.length - 1 || time <= 0) {
+    showScores();
+    console.log("line 117");
+  }
   console.log("incorrect");
 } 
 
@@ -102,14 +126,18 @@ if (currentPosition === questions.length - 1 || time <= 0) {
 
 )
 function nextQuestion(){
-
   currentPosition++;
+  // if(currentPosition !== questions.length - 1) {
+    
+
+  // }
+  
   //rewrite h1 and choices with question[currentPosition]
-  questionText.innerText = questions[currentPosition].question
-  buttonOne.innerText = questions[currentPosition].options[0]
-  buttonTwo.innerText = questions[currentPosition].options[1]
-  buttonThree.innerText = questions[currentPosition].options[2]
-  buttonFour.innerText = questions[currentPosition].options[3]
+  questionText.innerText = questions[currentPosition]?.question
+  buttonOne.innerText = questions[currentPosition]?.options[0]
+  buttonTwo.innerText = questions[currentPosition]?.options[1]
+  buttonThree.innerText = questions[currentPosition]?.options[2]
+  buttonFour.innerText = questions[currentPosition]?.options[3]
   
 
 }
@@ -140,25 +168,27 @@ function showScores () {
 submitScore.addEventListener("click", function() {
   highScore.classList.remove("hide")
   resultsMenu.classList.add("hide")
-  highScoreName.textContent = scoreName.value;
+  highScoreName.textContent = highScores[0].name;
+  highScoreInput.textContent = highScores[0].score;
   console.log(scoreName.value); //printing in console
 saveScore();
 
 });
 
-console.log(score);
  
-var highScores = JSON.parse(localStorage.getItem("scores")) || [];
-// should this be score inside?
+var highScores = JSON.parse(localStorage.getItem("score")) || [];
+console.log("highScores:", highScores);
+
 
 function saveScore () {
   
-  var score = {
+  var finalScore = {
     name: scoreName.value,
-    score: 0
+    score: score
 
   };
-     
-  highScores.push(score);   
+  console.log("finalScore", finalScore, typeof finalScore); 
+  highScores.push(finalScore);  
+  console.log("highScores:", highScores); 
   localStorage.setItem("score", JSON.stringify(highScores));
 }
