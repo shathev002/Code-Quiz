@@ -16,8 +16,10 @@ var highScores = JSON.parse(localStorage.getItem("scores")) || [];
 var resultsMenu = document.querySelector("#resultsMenu");
 var submitScore = document.querySelector("#submitScore");
 var myScore = document.querySelector(".myScore");
-var name = document.querySelector(".name");
+var highScoreName = document.querySelector(".highScoreName");
 var highScoreInput = document.querySelector(".highScoreInput");
+var backBtn = document.querySelector("#backBtn");
+var clearBtn = document.querySelector("#clearBtn");
 var time = 60;
 var timerInterval = '';
 var currentPosition = 0;
@@ -132,12 +134,13 @@ function showScores () {
   resultsMenu.classList.remove("hide")
   gameMenu.classList.add("hide")
   myScore.innerText = `Your score: ${score}`;
+
 }
 
 submitScore.addEventListener("click", function() {
   highScore.classList.remove("hide")
   resultsMenu.classList.add("hide")
-  highScoreInput = scoreName.value;
+  highScoreName.textContent = scoreName.value;
   console.log(scoreName.value); //printing in console
 saveScore();
 
@@ -152,10 +155,10 @@ function saveScore () {
   
   var score = {
     name: scoreName.value,
-    score:time
+    score: 0
 
   };
      
-  highScores.push(score)   // getting error 
+  highScores.push(score);   
   localStorage.setItem("score", JSON.stringify(highScores));
 }
