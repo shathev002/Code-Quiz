@@ -11,16 +11,17 @@ var choices = document.querySelector("#choices");
 var highScore = document.querySelector("#highScoreMenu");
 var scoreTable = document.querySelector("#scoreTable");
 var scoreName = document.querySelector("#scoreName");
-var highScores = JSON.stringify(localStorage.getItem("scores")) || []
+//var highScores = JSON.stringify(localStorage.getItem("scores")) || [];
+var highScores = JSON.parse(localStorage.getItem("scores")) || [];
 var resultsMenu = document.querySelector("#resultsMenu");
 var submitScore = document.querySelector("#submitScore");
+var myScore = document.querySelector(".myScore");
 var time = 60;
 var timerInterval = '';
 var currentPosition = 0;
+var score = 0;
 
-
-console.log(submitScore); // prints null
-console.log(submitScore);
+myScore.innerText = `Your score: ${score}`;
 
 //timer
 
@@ -98,7 +99,8 @@ if (currentPosition === questions.length - 1 || time <= 0) {
 
   else if (event.target.innerText === questions[currentPosition].answer) {
   nextQuestion();
-  console.log("correct");
+  score += 1;
+  console.log(score);
 } else {
   time-=10;
   nextQuestion();
@@ -126,7 +128,7 @@ function nextQuestion(){
 function showScores () {
   resultsMenu.classList.remove("hide")
   gameMenu.classList.add("hide")
- 
+  myScore.innerText = `Your score: ${score}`;
 }
 
 submitScore.addEventListener("click", function() {
@@ -137,15 +139,18 @@ saveScore();
 
 });
 
+console.log(score);
+console.log(score.name); //undefined
+
 
 function saveScore () {
-  highScore.classList.remove("hide")
-resultsMenu.classList.add("hide")
-
+  
   var score = {
-    name: document.querySelector("#scoreName").value,
+    name: scoreName.value,
     score:time
+
   }
-  highScores.push(score)
+     
+  highScores.push(score)   // getting error 
   localStorage.setItem("score",JSON.stringify(highScores))
 }
