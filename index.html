@@ -11,7 +11,11 @@
 <body>
   <div id="startMenu">
   <h1>Welcome to the Coding Quiz</h1>
-  <button id="startButton">Start</button>
+  <p>Try to answer the following questions within the time limit. <br>
+    Please note that incorrect answers will deduct yout time by ten seconds. 
+    <br>Good luck!
+  </p>
+  <button id="startButton">Start Quiz</button>
 </div>
 <div id="gameMenu" class="hide">
   <h3 id="timer"></h3>
@@ -38,7 +42,7 @@
   </div>
 
   <div id="highScoreMenu" class="hide">
-    <h1>High Scores</h1>
+    <h1>Highscores</h1>
     <table>
       <tbody id="scoreTable">
         <tr>
@@ -49,8 +53,12 @@
         </tr>
       </tbody>
     </table>
-    <button id="backBtn">Go back</button>
+    <div class="score-buttons">
+      <button id="backBtn">Go back</button>
       <button id="clearBtn">Clear Highscores</button>
+    </div>
+    
+
   </div>
 
 </body>

@@ -11,3 +11,105 @@
 
 
 }
+
+
+#timer {
+  
+  float: right;
+  color: red;
+  margin-bottom: 20px;
+  left: 20px;
+}
+#startMenu {
+
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 50px;
+  
+} 
+
+#startMenu p {
+
+
+ text-align: center;
+  margin-top: 60px;
+}
+
+#startMenu h1 {
+
+}
+
+#startButton {
+ 
+margin-top: 50px;
+width: 70px;
+color: white;
+font-weight: bold;
+background-color: rgb(55, 20, 55);
+cursor: pointer;
+}
+
+#gameMenu {
+  
+  display: flex;
+  flex-flow: column;
+  margin-top: 50px;
+  
+}
+
+#questionText {
+  font-size: 20px;
+
+}
+#choices button {
+  
+  margin-top: 30px;
+  padding: 5px;
+  width: 25%;
+  color: white;
+  background-color: rgb(55, 20, 55);
+  font-size: 13px;
+ 
+}
+ 
+
+
+#resultsMenu {
+
+display: flex;
+flex-flow: column;
+}
+
+#resultsMenu p {
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+#submitScore {
+  color: white;
+  background-color: rgb(55, 20, 55);
+  width: 70px;  
+  cursor: pointer;
+}
+
+#highScoreMenu {
+  display: flex;
+  flex-flow: column;
+  align-items: start;
+  text-align:left
+  }
+
+  #highScoreMenu h1 {
+  font-size: 20px;
+  margin-bottom: 20px;
+
+  }
+
+.score-buttons button {
+  color: white;
+  background-color: rgb(55, 20, 55);
+  cursor: pointer;
+
+}
+

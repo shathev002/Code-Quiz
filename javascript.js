@@ -63,14 +63,15 @@ options: ["HTML", "Syntax", "For loop ", "JSON"]
 
 startButton.addEventListener("click",function(event){
   event.preventDefault();
-  gameMenu.classList.remove("hide")
   startMenu.classList.add("hide")
+  gameMenu.classList.remove("hide")
+  setInterval(timerInterval);
   questionText.innerText = questions[currentPosition].question
   buttonOne.innerText = questions[currentPosition].options[0]
   buttonTwo.innerText = questions[currentPosition].options[1]
   buttonThree.innerText = questions[currentPosition].options[2]
   buttonFour.innerText = questions[currentPosition].options[3]
-  setInterval(timerInterval);
+  
 
 })
 
