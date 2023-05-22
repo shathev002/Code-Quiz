@@ -27,7 +27,7 @@ var score = 0;
 //myScore.innerText = `Your score: ${score}`;
 
 var questions = [{
-
+  
   question: "What does DOM stand for?",
   answer: "Document Object Model",
   options: ["Document Object Model", "Document Oriented Module", "Date of Birth", "Database Object Model"]
@@ -111,6 +111,8 @@ console.log("questions.length: ", questions.length);
 }
 
 );
+
+
 function nextQuestion(){
   currentPosition++;
  
@@ -122,7 +124,7 @@ function nextQuestion(){
   buttonFour.innerText = questions[currentPosition].options[3]
   
 
-}
+};
 
 //timer
 
@@ -151,8 +153,8 @@ submitScore.addEventListener("click", function() {
   highScore.classList.remove("hide")
   resultsMenu.classList.add("hide")
   saveScore();
-  highScoreName.textContent = highScores[0].name;
-  highScoreInput.textContent = highScores[0].score;
+  highScoreName.textContent = "Name: " + highScores[0].name;
+  highScoreInput.textContent = "Score: " + highScores[0].score;
   console.log(scoreName.value); 
   
 
@@ -184,7 +186,16 @@ backBtn.addEventListener("click", function(event) {
   event.preventDefault();
   highScore.classList.add("hide")
   startMenu.classList.remove("hide")
+  //restart();
+
+  
 });
+
+// function restart() {
+//   nextQuestion();
+//   clearInterval(timerInterval);
+//   setInterval(timerInterval);
+//   };
 
 // Reset the score
 
