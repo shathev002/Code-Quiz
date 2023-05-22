@@ -23,6 +23,9 @@ var time = 60;
 var timerInterval = '';
 var currentPosition = 0;
 var score = 0;
+highScore.style.display = 'none'
+gameMenu.style.display = 'none'
+resultsMenu.style.display = 'none'
 
 //myScore.innerText = `Your score: ${score}`;
 
@@ -63,8 +66,8 @@ options: ["HTML", "Syntax", "For loop ", "JSON"]
 
 startButton.addEventListener("click",function(event){
   event.preventDefault();
-  startMenu.classList.add("hide")
-  gameMenu.classList.remove("hide")
+  startMenu.style.display = 'none'
+  gameMenu.style.display = 'flex'
   setInterval(timerInterval);
   questionText.innerText = questions[currentPosition].question
   buttonOne.innerText = questions[currentPosition].options[0]
@@ -144,15 +147,15 @@ if (time > 0) {
 
 //scores
 function showScores () {
-  resultsMenu.classList.remove("hide")
-  gameMenu.classList.add("hide")
+  gameMenu.style.display = 'none'
+  resultsMenu.style.display = 'flex'
   myScore.innerText = `Your score: ${score}`;
 
 }
 
 submitScore.addEventListener("click", function() {
-  highScore.classList.remove("hide")
-  resultsMenu.classList.add("hide")
+  resultsMenu.style.display = 'none'
+  highScore.style.display = 'flex'
   saveScore();
   highScoreName.textContent = "Name: " + highScores[0].name;
   highScoreInput.textContent = "Score: " + highScores[0].score;
@@ -185,8 +188,9 @@ function saveScore () {
 
 backBtn.addEventListener("click", function(event) {
   event.preventDefault();
-  highScore.classList.add("hide")
-  startMenu.classList.remove("hide")
+  highScore.style.display = 'none'
+  startMenu.style.display = 'flex'
+  
   //restart();
 
   
