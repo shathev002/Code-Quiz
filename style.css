@@ -13,13 +13,6 @@
 }
 
 
-#timer {
-  
-  float: right;
-  color: red;
-  margin-bottom: 20px;
-  left: 20px;
-}
 #startMenu {
 
   display: flex;
@@ -36,9 +29,7 @@
   margin-top: 60px;
 }
 
-#startMenu h1 {
 
-}
 
 #startButton {
  
@@ -55,13 +46,32 @@ cursor: pointer;
   display: flex;
   flex-flow: column;
   margin-top: 50px;
+  margin-left: 20px;
+  position: relative;
   
 }
+#timer {
+   
+  color: red;
+  margin-bottom: 20px;
+  right: 50px;
+  position:absolute;
+  
+}
+
 
 #questionText {
   font-size: 20px;
 
 }
+
+#choices {
+  display: flex;
+  flex-flow: column;
+ 
+
+}
+
 #choices button {
   
   margin-top: 30px;
@@ -70,7 +80,13 @@ cursor: pointer;
   color: white;
   background-color: rgb(55, 20, 55);
   font-size: 13px;
+  cursor: pointer;
+  margin-bottom: -20px;
  
+}
+
+#choices button:hover {
+  opacity: .6;
 }
  
 
@@ -79,6 +95,8 @@ cursor: pointer;
 
 display: flex;
 flex-flow: column;
+margin-top: 50px;
+margin-left: 20px;
 }
 
 #resultsMenu p {
@@ -97,7 +115,9 @@ margin-bottom: 20px;
   display: flex;
   flex-flow: column;
   align-items: start;
-  text-align:left
+  text-align:left;
+  margin-top: 50px;
+  margin-left: 20px;
   }
 
   #highScoreMenu h1 {
@@ -110,6 +130,7 @@ margin-bottom: 20px;
   color: white;
   background-color: rgb(55, 20, 55);
   cursor: pointer;
+  margin-top: 20px;
 
 }
 
