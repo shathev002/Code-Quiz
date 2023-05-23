@@ -126,11 +126,19 @@ margin-bottom: 20px;
 
   }
 
+  #scoreTable {
+  display: flex;
+  flex-flow: column;
+
+
+  }
+
 .score-buttons button {
   color: white;
   background-color: rgb(55, 20, 55);
   cursor: pointer;
   margin-top: 20px;
+  
 
 }
 

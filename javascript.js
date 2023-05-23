@@ -154,14 +154,20 @@ submitScore.addEventListener("click", function() {
   resultsMenu.style.display = 'none'
   highScore.style.display = 'flex'
   saveScore();
-  highScoreName.textContent = "Name: " + highScores[0].name;
-  highScoreInput.textContent = "Score: " + highScores[0].score;
-  console.log(scoreName.value); 
+  for (let i = 0; i < highScores.length; i++) {
+  // console.log(highScores[i]);
+  highScoreName.textContent = "Name: " + highScores[i].name;
+  highScoreInput.textContent = "Score: " + highScores[i].score;
+  scoreTable.appendChild(highScoreName.textContent);
+  scoreTable.appendChild(highScoreInput.textContent);
+}
+  // highScoreName.textContent = "Name: " + highScores[0].name;
+  // highScoreInput.textContent = "Score: " + highScores[0].score;
+  // console.log(scoreName.value); 
   
 
 });
 
- 
 function saveScore () {
   
   var finalScore = {
@@ -177,6 +183,14 @@ function saveScore () {
 
 // return to start menu
 
+
+for (let i = 0; i < highScores.length; i++) {
+  console.log(highScores[i]);
+  highScoreName.textContent = "Name: " + highScores[i].name;
+  highScoreInput.textContent = "Score: " + highScores[i].score;
+}
+
+
 backBtn.addEventListener("click", function(event) {
   event.preventDefault();
   highScore.style.display = 'none'
@@ -186,13 +200,6 @@ backBtn.addEventListener("click", function(event) {
   
 });
 
-// function restart() {
-//   nextQuestion();
-//   clearInterval(timerInterval);
-//   setInterval(timerInterval);
-//   };
-
-// Reset the score
 
 clearBtn.addEventListener("click", function(event) {
   event.preventDefault();
