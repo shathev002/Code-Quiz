@@ -81,9 +81,6 @@ startButton.addEventListener("click",function(event){
 
 choices.addEventListener("click",function(event) {
 event.preventDefault();
-
-
-
   if (event.target.innerText === questions[currentPosition].answer) {
     score += 1;
     if (currentPosition !== questions.length - 1 && time > 0) {
@@ -135,10 +132,10 @@ function nextQuestion(){
 timerInterval = setInterval(countDown, 1000);
 
 function countDown () {
-  timer.innerText = time +" seconds";
-if (time > 0) {
+   timer.innerText = time +" seconds";
+if (time <= 60) {
   time--;
-} else if (time <= 0) {
+} else if (currentPosition === questions.length - 1 || time <= 0) {
   clearInterval(timerInterval);
   showScores();
 }
@@ -165,10 +162,6 @@ submitScore.addEventListener("click", function() {
 });
 
  
-// var highScores = JSON.parse(localStorage.getItem("score")) || [];
-// console.log("highScores:", highScores);
-
-
 function saveScore () {
   
   var finalScore = {
@@ -182,17 +175,13 @@ function saveScore () {
   localStorage.setItem("scores", JSON.stringify(highScores));
 }
 
-
-
 // return to start menu
 
 backBtn.addEventListener("click", function(event) {
   event.preventDefault();
   highScore.style.display = 'none'
   startMenu.style.display = 'flex'
-  
-  //restart();
-
+  time = 60;
   
 });
 
