@@ -182,6 +182,7 @@ backBtn.addEventListener("click", function(event) {
   highScore.style.display = 'none'
   startMenu.style.display = 'flex'
   time = 60;
+  currentPosition = 0;
   
 });
 
