@@ -27,7 +27,6 @@ highScore.style.display = 'none'
 gameMenu.style.display = 'none'
 resultsMenu.style.display = 'none'
 
-//myScore.innerText = `Your score: ${score}`;
 
 var questions = [{
   
@@ -154,16 +153,20 @@ submitScore.addEventListener("click", function() {
   resultsMenu.style.display = 'none'
   highScore.style.display = 'flex'
   saveScore();
+  
   for (let i = 0; i < highScores.length; i++) {
-  // console.log(highScores[i]);
+  var row = document.createElement('tr');
+  var rowTwo = document.createElement('tr');
+  console.log(highScores[i].score);
+
   highScoreName.textContent = "Name: " + highScores[i].name;
   highScoreInput.textContent = "Score: " + highScores[i].score;
-  scoreTable.appendChild(highScoreName.textContent);
-  scoreTable.appendChild(highScoreInput.textContent);
+  row.innerHTML=highScoreName.textContent;
+  rowTwo.innerHTML=highScoreInput.textContent;
+  document.getElementsByTagName('table')[0].appendChild(row);
+  document.getElementsByTagName('table')[0].appendChild(rowTwo);
+ 
 }
-  // highScoreName.textContent = "Name: " + highScores[0].name;
-  // highScoreInput.textContent = "Score: " + highScores[0].score;
-  // console.log(scoreName.value); 
   
 
 });
@@ -197,6 +200,7 @@ backBtn.addEventListener("click", function(event) {
   startMenu.style.display = 'flex'
   time = 60;
   currentPosition = 0;
+
   
 });
 
