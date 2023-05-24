@@ -29,7 +29,7 @@ You can refer to the CSS, HTML and javaScript files to access the code for this 
 
 To view the actual webpage please refer to the following url link.
 
-https://shathev002.github.io/Password-Generator/
+https://shathev002.github.io/Code-Quiz/
 
 You can also refer to the screenshot below. 
 
